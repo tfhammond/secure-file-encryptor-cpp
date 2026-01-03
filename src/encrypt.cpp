@@ -40,6 +40,7 @@ bool encrypt_file(const std::string& in_path, const std::string& out_path, const
 
     if (!ctx) { //test EVP_CIPHER_CTX_new
         std::cerr << "Error: EVP_CIPHER_CTX_new has failed" << std::endl;
+        return false;
     }
 
     if (EVP_EncryptInit_ex(ctx, EVP_aes_256_gcm(), nullptr, nullptr, nullptr) != 1) { //Initializes for AES-256 in GCM mode
